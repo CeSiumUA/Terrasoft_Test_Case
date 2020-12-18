@@ -6,21 +6,31 @@
     </mat-card-header>
     <mat-card-content>
       <div class="card-content">
-        <div class="custom-form-field">
-          <mat-slide-toggle style="padding-bottom: 17.5px" [(ngModel)]="useServerAnalyzer">Обработка на стороне сервера</mat-slide-toggle>
-        </div>
         <mat-form-field>
           <mat-label>Отображать:</mat-label>
           <input matInput type="number" [(ngModel)]="textAreaNumberOfRows">
         </mat-form-field>
         <mat-form-field class="form-field">
           <mat-label>Введите текст:</mat-label>
-          <textarea matInput [rows]="textAreaNumberOfRows" (input)="autoResizeTextBox($event)" placeholder="Произвольный текст..."></textarea>
+          <textarea matInput [rows]="textAreaNumberOfRows" [(ngModel)]="Text" (input)="onInput($event)" placeholder="Произвольный текст..."></textarea>
         </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-footer>
-
+      <div class="table-content">
+        <table mat-table [dataSource]="results" style="width: 100%" class="mat-elevation-z8">
+          <ng-container matColumnDef="metricsName">
+            <th mat-header-cell *matHeaderCellDef>Метрика</th>
+            <td mat-cell *matCellDef="let element">{{element.metricName}}</td>
+          </ng-container>
+          <ng-container matColumnDef="metricsResult">
+            <th mat-header-cell *matHeaderCellDef>Значение</th>
+            <td mat-cell *matCellDef="let element">{{element.metricResult}}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
     </mat-card-footer>
   </mat-card>
 </div>

@@ -21,7 +21,7 @@ namespace Terrasoft_Test_Case.Analyzer
                     chars.Add(chr, 1);
                 }
             }
-            return new MetricsResult<char>(this.GetType().Name, chars.OrderByDescending(x => x.Value).FirstOrDefault().Key);
+            return new MetricsResult<char>("Частота символа", chars.Where(x => x.Key != ' ').OrderByDescending(x => x.Value).FirstOrDefault().Key);
         }
         public async Task<object> GetMetrics(string Text)
         {

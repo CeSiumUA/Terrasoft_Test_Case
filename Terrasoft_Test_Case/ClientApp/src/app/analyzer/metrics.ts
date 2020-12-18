@@ -1,4 +1,4 @@
 export interface Metrics{
-  metricsName: string;
-
+  metricName: string;
+  metricResult: any;
 }

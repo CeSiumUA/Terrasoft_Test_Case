@@ -23,6 +23,8 @@ namespace Terrasoft_Test_Case
             services.AddControllersWithViews();
             services.AddScoped<AnalyzerService>();
             services.AddScoped<IAnalyzer, FrequentSymbol>();
+            services.AddScoped<IAnalyzer, SentenceAmountAnalyzer>();
+            services.AddScoped<IAnalyzer, ExclamatoryCounterAnalyzer>();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";

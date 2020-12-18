@@ -12,6 +12,8 @@ import {FormsModule} from '@angular/forms';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     FormsModule,
     MatSliderModule,
     MatButtonToggleModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
