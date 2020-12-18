@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Terrasoft_Test_Case.Analyzer;
+using Terrasoft_Test_Case.Services;
 
 namespace Terrasoft_Test_Case
 {
@@ -19,6 +21,8 @@ namespace Terrasoft_Test_Case
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<AnalyzerService>();
+            services.AddScoped<IAnalyzer, FrequentSymbol>();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
